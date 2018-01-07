@@ -6,13 +6,15 @@ class User extends \think\Controller
 	//首页
 	public function index(){
 		//判断用户是否登陆
+		// print_r($this->user_id);
+		// 查找数据库的数据
 		return $this->fetch();
 
 	}
 
 	//登录
 	public function login(){
-
+		return $this->fetch();
 
 	}
 	//注册
