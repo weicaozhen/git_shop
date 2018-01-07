@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>登录芮享</title>
+<link rel="stylesheet" type="text/css" href="/public/static/css/login.css">
+<link rel="stylesheet" type="text/css" href="/public/static/css/common.min.css">
+<script type="text/javascript" src="/public/static/js/jquery-1.11.0.min.js"></script>
+<meta name="__hash__" content="69dc783ad2014459ebd4c17e48e4cbbf_a53ed6514afb64a38e4b08acf0e5d618" /></head>
+<body>
+<div class="header area"> <a href="/index.php" class="logo_s" title="首页" style="margin: 10px 0;height: 59px; display: block;"></a> </div>
+<div class="m-login" id="divMLogin">
+  <div class="login-wrap">
+    <div class="login-form"  style="background-color: #e9e9e9;">
+      <div class="title oh">
+        <h1 class="fl">登录芮享</h1>
+        <div class="regist-link fr"> <a href="{:url('/home/user/reg.html')}">免费注册</a> </div>
+      </div>
+      <div class="u-msg-wrap">
+        <div class="msg msg-warn" style="display:none;"> <i></i>
+          <span>公共场所不建议自动登录，以防帐号丢失</span>
+        </div>
+        <div class="msg msg-err" style="display:none;"> <i></i>
+          <span class="J-errorMsg"></span>
+        </div>
+      </div>
+      <form id="login-form" method="post">
+        <div class="u-input mb20">
+          <label class="u-label u-name"></label>
+          <input type="text" class="u-txt J-input-txt" value="" placeholder="用户名" name="username" id="username" autocomplete="off">
+        </div>
+        <div class="u-input mb15">
+          <label class="u-label u-pwd"></label>
+          <input type="password" class="u-txt J-input-txt" placeholder="密码"  name="password" id="password" autocomplete="off">
+        </div>
+        <div class="u-input mb15" style="display: none" >
+			<input type="text" placeholder="不区分大小写" name="verify_code" id="verify_code" class="u-txt J-input-txt" style="width:100px; padding:10px;"/>
+            <img width="140" height="65" src="/index.php/Home/User/verify.html" id="verify_code_img" class="po-ab to0">
+            <a><img onclick="verify(this);" src="/Template/pc/soubao/Static/images/chg_image.png" class="ma-le-142 po-ab to18"></a>
+        </div>        
+        <div class="u-safe">
+          <span class="auto">
+          <label>
+          	<input type="hidden" name="referurl" id="referurl" value="http://www.localshop.com/index.php/Home/user/reg.html">
+            <input type="checkbox" class="u-ckb J-auto-rmb"  name="remember">自动登录</label>
+          </span>
+          <span class="forget"><a href="/index.php/Home/User/forget_pwd.html">忘记密码？</a></span>
+        </div>         
+        <div class="u-btn mb20 mt20"> <a href="javascript:void(0);" onClick="checkSubmit();" class="J-login-submit" name="sbtbutton">登&nbsp;&nbsp;&nbsp;&nbsp;录</a> </div>
+      <input type="hidden" name="__hash__" value="69dc783ad2014459ebd4c17e48e4cbbf_a53ed6514afb64a38e4b08acf0e5d618" /></form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/public/static/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="/public/static/js/common.js"></script>
+ <script>
+	function checkSubmit()
+	{
+		$('.msg-err').hide();
+		$('.J-errorMsg').empty();
+		var username = $('#username').val();
+		var password = $('#password').val();
+		var referurl = $('#referurl').val();
+		if(username == ''){
+			showErrorMsg('用户名不能为空!');
+			return false;
+		}
+		
+		if(password == ''){
+			showErrorMsg('密码不能为空!');
+			return false;
+		}
+		
+		$('#login-form').submit();
+		$.ajax({
+			type : 'post',
+			url : '/index.php?m=home&c=User&a=do_login&t='+Math.random(),
+			data : {username:username,password:password,referurl:referurl},		
+			dataType : 'json',
+			success : function(res){
+				if(res.status == 1){
+					window.location.href = res.url;
+				}else{
+					showErrorMsg(res.msg);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				showErrorMsg('网络失败，请刷新页面后重试');
+			}
+		})
+		
+	}
+	
+    // function checkMobile(tel) {
+    //     var reg = /(^1[3|4|5|7|8][0-9]{9}$)/;
+    //     if (reg.test(tel)) {
+    //         return true;
+    //     }else{
+    //         return false;
+    //     };
+    // }
+    
+    // function checkEmail(str){
+    //     var reg = /^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    //     if(reg.test(str)){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+    
+    function showErrorMsg(msg){
+    	$('.msg-err').show();
+    	$('.J-errorMsg').html(msg);
+    }
+</script>
+</body>
+</html>

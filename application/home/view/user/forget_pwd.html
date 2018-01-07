@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>安全中心</title>
+<link rel="stylesheet" href="/Template/pc/soubao/Static/css/security_set.css">
+<meta name="__hash__" content="b8ac6dd547314ef608f7859c2d973b10_fe457663d1807ead50c268b45ae339d0" /></head>
+<body> 
+<!-- 头部-s -->
+<link href="/Template/pc/soubao/Static/css/common_www.css" rel="stylesheet" type="text/css" />
+<link href="/Template/pc/soubao/Static/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/Template/pc/soubao/Static/css/default.css" rel="stylesheet" type="text/css" />
+<link href="/Template/pc/soubao/Static/css/art_skin_order.css" rel="stylesheet" type="text/css" />
+<link href="/Template/pc/soubao/Static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/Template/pc/soubao/Static/css/message.index.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/Template/pc/soubao/Static/css/minicart.css">
+<script language="JavaScript" type="text/javascript" src="/Template/pc/soubao/Static/js/jquery-1.9.0.min.js"></script>
+
+<!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<![endif]-->
+<style type="text/css">
+#global-topbar .topbar-right #msg_center {
+	background: none;
+}
+.topbar-right #msg_center .tips {
+	position: absolute;
+	left: -30px;
+	top: 28px;
+	min-width: 70px;
+	max-width: 132px;
+	height: 20px;
+ *line-height: 19px;
+	border-radius: 2px;
+	padding: 0px 20px 0 10px;
+	background: #666;
+	color: #fff;/*display: none;*/
+}
+#msg_center .tips .tip-cnt {
+	color: #fff;
+	text-decoration: none;
+}
+#msg_center .tips .tip-cnt span {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.tips .tip-t {
+	position: absolute;
+	left: 72px;
+	top: -11px;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border-width: 6px;
+	border-style: dashed dashed solid dashed;
+	border-color: transparent transparent #666 transparent;
+}
+.tips .tip-times {
+	position: absolute;
+	display: block;
+	right: 5px;
+	top: 0px;
+	font-size: 16px;
+	font-style: normal;
+	color: #bfb5b5;
+	cursor: pointer;
+}
+.tips .tip-times:hover {
+	color: #fff;
+}
+#global-topbar .topbar-right #msg_center .num {
+	color: #f00;
+}
+#show_category {
+	float:left
+}
+.catagories {
+	display:none
+}
+#show_category:hover .catagories {
+	display:block
+}
+.catagory-detail {
+	display:none;
+	min-height:456px
+}
+#global-nav .catagories li:hover {
+	margin-right: -10px;
+	color: #fff;
+	background: #f22e00;
+}
+#global-nav .catagories li:hover h3 {
+	color:#FFF
+}
+#global-nav .catagories li h3 a:hover {
+	color:#FFF
+}
+ul.catagories li:hover:after {
+	content:"";
+	position:absolute;
+	border-right:2px solid #f22e00;
+	right:-2px;
+	height:30px;
+	z-index:199;
+}
+ul.catagories li:hover .catagory-detail {
+	display:block
+}
+.icon-feiniu:before{
+	content:'';
+	background-image:none;
+	display:none;
+}
+</style>
+<div id="global-topbar">
+  <div class="topbar-wrapper clearfix">
+    <ul class="topbar-left">
+      <li class="dropdown my-location">
+        <span class="current-place"></span>
+        <i class="icon-location icon-down"></i> </li>
+    </ul>
+    <ul class="topbar-right" id="topbar-right">
+      <li id="wellcome_wording"></li>
+      <li id="link_signin" style="display: none;"></li>
+            <li><a href="/index.php/Home/user/index.html">我的TPshop</a></li>
+      <li><a href="/index.php/Home/Article/detail/article_id/17.html" target="_blank">帮助中心</a></li>
+    </ul>
+  </div>
+</div>
+<div class="wrapper clearfix" id="global-header">
+  <div id="hd-banner" class="wrapper"> 
+    <!--
+		<a href="" target="_blank"><img src="/Template/pc/soubao/Static/images/201602261202471456459367_kk-0.jpg" width="1220" height="60" alt""></a>
+	--> 
+  </div>
+  <div id="headerall" class="wrapper clearfix"> <a href="/" title="首页" class="logohref">
+    <h1 id="hd-logo" class="icon-feiniu">
+      <img src="/Public/images/newLogo.png"/>
+    </h1>
+    </a>
+<!--搜索框-->
+    <div id="hd-search">
+      <div class="search-form">
+		<form name="sourch_form" id="sourch_form" method="post" action="/index.php/Home/Goods/search.html">
+		  <input type="text" data-role="input-search" autocomplete="off" class="search-keyword"  name="q" id="q" value="" placeholder="搜索关键字"/>
+          <button class="btn-search" type="submit"onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();">搜索</button>
+        <input type="hidden" name="__hash__" value="b8ac6dd547314ef608f7859c2d973b10_fe457663d1807ead50c268b45ae339d0" /></form>
+      </div>
+      <div class="hd-hot-keywords">
+        <ul id="hotsearch">
+        	<li><a href="/index.php/Home/Goods/search/q/%E6%89%8B%E6%9C%BA.html" class="ht">手机</a></li><li><a href="/index.php/Home/Goods/search/q/iphone.html" >iphone</a></li><li><a href="/index.php/Home/Goods/search/q/%E5%B0%8F%E7%B1%B3.html" >小米</a></li>          
+        </ul>
+      </div>
+    </div>
+<!--搜索框  end -->    
+    <!--鼠标移动上去 显示购物车-->
+    <div id="hd-my-cart">
+      <span class="icon-cart-gwc">
+      <span class="quantity col888"><b><em class="cart_quantity">0</em></b></span>
+      </span>
+      <p class="icon-cart-hd">我的购物车</p>
+      <div id="show_minicart" style="display:none;">
+            <div id="content_test">
+                  <div id="minicart" class="ui_poptip minicart minicartContent">
+                    <div class="ui_poptip_container">
+                      <div class="ui_poptip_arrow poptip_up"></div>
+                      <div class="ui_poptip_content">
+                        <span class="nop emptycart">购物车中没有TPshop商品哟！</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                   
+      </div>
+    </div>
+    <!--鼠标移动上去 显示购物车 end--> 
+  </div>
+  <div id="header"></div>
+</div>
+<nav id="global-nav" class="clearfix">
+  <div class="wrapper">
+    <div id="show_category">
+      <span class="catagories-title"><i class="icon"></i><a style="color:#fff;text-decoration:none;" href="javascript:void(0);" >全部商品分类</a></span>
+      <ul class="catagories">
+        <li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/1.html">手机 、 数码 、 通信</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/12.html">手机配件</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/100.html">电池 电源 充电器</a><a href="/index.php/Home/Goods/goodsList/id/102.html">贴膜,保护套</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/15.html">数码配件</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/112.html">充值卡</a><a href="/index.php/Home/Goods/goodsList/id/113.html">读卡器</a><a href="/index.php/Home/Goods/goodsList/id/114.html">支架</a><a href="/index.php/Home/Goods/goodsList/id/115.html">滤镜</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/18.html">手机通讯</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/124.html">对讲机</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/13.html">摄影摄像</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/103.html">数码相机</a><a href="/index.php/Home/Goods/goodsList/id/104.html">单反相机</a><a href="/index.php/Home/Goods/goodsList/id/105.html">摄像机</a><a href="/index.php/Home/Goods/goodsList/id/106.html">镜头</a><a href="/index.php/Home/Goods/goodsList/id/107.html">数码相框</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/16.html">娱乐影视</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/116.html">音响麦克风</a><a href="/index.php/Home/Goods/goodsList/id/117.html">耳机/耳麦</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/123.html">手机</a> </dt>
+                        <dd>
+                                                  </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/14.html">运营商</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/108.html">选号码</a><a href="/index.php/Home/Goods/goodsList/id/109.html">办套餐</a><a href="/index.php/Home/Goods/goodsList/id/110.html">合约机</a><a href="/index.php/Home/Goods/goodsList/id/111.html">中国移动</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/17.html">电子教育</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/118.html">学生平板</a><a href="/index.php/Home/Goods/goodsList/id/119.html">点读机</a><a href="/index.php/Home/Goods/goodsList/id/120.html">电纸书</a><a href="/index.php/Home/Goods/goodsList/id/121.html">电子词典</a><a href="/index.php/Home/Goods/goodsList/id/122.html">复读机</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/1.html"> 
+	                      <img src="/Public/upload/category/2016/04-02/56ffa1252fb1b.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li><li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/2.html">家用电器</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/19.html">生活电器</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/125.html">录音机</a><a href="/index.php/Home/Goods/goodsList/id/126.html">饮水机</a><a href="/index.php/Home/Goods/goodsList/id/127.html">烫衣机</a><a href="/index.php/Home/Goods/goodsList/id/128.html">电风扇</a><a href="/index.php/Home/Goods/goodsList/id/129.html">电话机</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/22.html">个护健康</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/139.html">剃须刀</a><a href="/index.php/Home/Goods/goodsList/id/140.html">吹风机</a><a href="/index.php/Home/Goods/goodsList/id/141.html">按摩器</a><a href="/index.php/Home/Goods/goodsList/id/142.html">足浴盆</a><a href="/index.php/Home/Goods/goodsList/id/143.html">血压计</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/20.html">大家电</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/130.html">电视</a><a href="/index.php/Home/Goods/goodsList/id/131.html">冰箱</a><a href="/index.php/Home/Goods/goodsList/id/132.html">空调</a><a href="/index.php/Home/Goods/goodsList/id/133.html">洗衣机</a><a href="/index.php/Home/Goods/goodsList/id/134.html">热水器</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/23.html">五金交电</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/144.html">厨卫五金</a><a href="/index.php/Home/Goods/goodsList/id/145.html">门铃门锁</a><a href="/index.php/Home/Goods/goodsList/id/146.html">开关插座</a><a href="/index.php/Home/Goods/goodsList/id/147.html">电动工具</a><a href="/index.php/Home/Goods/goodsList/id/148.html">监控安防</a><a href="/index.php/Home/Goods/goodsList/id/149.html">仪表仪器</a><a href="/index.php/Home/Goods/goodsList/id/150.html">电线线缆</a><a href="/index.php/Home/Goods/goodsList/id/151.html">浴霸/排气扇</a><a href="/index.php/Home/Goods/goodsList/id/152.html">灯具</a><a href="/index.php/Home/Goods/goodsList/id/153.html">水龙头</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/21.html">厨房电器</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/135.html">料理/榨汁机</a><a href="/index.php/Home/Goods/goodsList/id/136.html">电饭锅</a><a href="/index.php/Home/Goods/goodsList/id/137.html">微波炉</a><a href="/index.php/Home/Goods/goodsList/id/138.html">豆浆机</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/2.html"> 
+	                      <img src="/Public/upload/category/2016/04-22/5719c3c5bc052.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li><li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/3.html">电脑、办公</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/24.html">网络产品</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/154.html">网络配件</a><a href="/index.php/Home/Goods/goodsList/id/155.html">路由器</a><a href="/index.php/Home/Goods/goodsList/id/156.html">网卡</a><a href="/index.php/Home/Goods/goodsList/id/157.html">交换机</a><a href="/index.php/Home/Goods/goodsList/id/158.html">网络存储</a><a href="/index.php/Home/Goods/goodsList/id/159.html">3G/4G/5G上网</a><a href="/index.php/Home/Goods/goodsList/id/160.html">网络盒子</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/27.html">电脑整机</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/191.html">平板电脑</a><a href="/index.php/Home/Goods/goodsList/id/192.html">台式机</a><a href="/index.php/Home/Goods/goodsList/id/193.html">一体机</a><a href="/index.php/Home/Goods/goodsList/id/194.html">笔记本</a><a href="/index.php/Home/Goods/goodsList/id/195.html">超极本</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/30.html">游戏设备</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/222.html">游戏软件</a><a href="/index.php/Home/Goods/goodsList/id/223.html">游戏周边</a><a href="/index.php/Home/Goods/goodsList/id/224.html">游戏机</a><a href="/index.php/Home/Goods/goodsList/id/225.html">游戏耳机</a><a href="/index.php/Home/Goods/goodsList/id/226.html">手柄方向盘</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/25.html">办公设备</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/161.html">复合机</a><a href="/index.php/Home/Goods/goodsList/id/162.html">办公家具</a><a href="/index.php/Home/Goods/goodsList/id/163.html">摄影机</a><a href="/index.php/Home/Goods/goodsList/id/164.html">碎纸机</a><a href="/index.php/Home/Goods/goodsList/id/165.html">白板</a><a href="/index.php/Home/Goods/goodsList/id/166.html">投影配件</a><a href="/index.php/Home/Goods/goodsList/id/167.html">考勤机</a><a href="/index.php/Home/Goods/goodsList/id/168.html">多功能一体机</a><a href="/index.php/Home/Goods/goodsList/id/169.html">收款/POS机</a><a href="/index.php/Home/Goods/goodsList/id/170.html">打印机</a><a href="/index.php/Home/Goods/goodsList/id/171.html">会员视频音频</a><a href="/index.php/Home/Goods/goodsList/id/172.html">传真设备</a><a href="/index.php/Home/Goods/goodsList/id/173.html">保险柜</a><a href="/index.php/Home/Goods/goodsList/id/174.html">验钞/点钞机</a><a href="/index.php/Home/Goods/goodsList/id/175.html">装订/封装机</a><a href="/index.php/Home/Goods/goodsList/id/176.html">扫描设备</a><a href="/index.php/Home/Goods/goodsList/id/177.html">安防监控</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/28.html">电脑配件</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/196.html">内存</a><a href="/index.php/Home/Goods/goodsList/id/197.html">组装电脑</a><a href="/index.php/Home/Goods/goodsList/id/198.html">机箱</a><a href="/index.php/Home/Goods/goodsList/id/199.html">电源</a><a href="/index.php/Home/Goods/goodsList/id/200.html">CPU</a><a href="/index.php/Home/Goods/goodsList/id/201.html">显示器</a><a href="/index.php/Home/Goods/goodsList/id/202.html">主板</a><a href="/index.php/Home/Goods/goodsList/id/203.html">刻录机/光驱</a><a href="/index.php/Home/Goods/goodsList/id/204.html">显卡</a><a href="/index.php/Home/Goods/goodsList/id/205.html">声卡/扩展卡</a><a href="/index.php/Home/Goods/goodsList/id/206.html">硬盘</a><a href="/index.php/Home/Goods/goodsList/id/207.html">散热器</a><a href="/index.php/Home/Goods/goodsList/id/208.html">固态硬盘</a><a href="/index.php/Home/Goods/goodsList/id/209.html">装机配件</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/26.html">文具耗材</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/178.html">文具管理</a><a href="/index.php/Home/Goods/goodsList/id/179.html">本册便签</a><a href="/index.php/Home/Goods/goodsList/id/180.html">硒鼓/墨粉</a><a href="/index.php/Home/Goods/goodsList/id/181.html">计算器</a><a href="/index.php/Home/Goods/goodsList/id/182.html">墨盒</a><a href="/index.php/Home/Goods/goodsList/id/183.html">笔类</a><a href="/index.php/Home/Goods/goodsList/id/184.html">色带</a><a href="/index.php/Home/Goods/goodsList/id/185.html">画具画材</a><a href="/index.php/Home/Goods/goodsList/id/186.html">纸类</a><a href="/index.php/Home/Goods/goodsList/id/187.html">财会用品</a><a href="/index.php/Home/Goods/goodsList/id/188.html">办公文具</a><a href="/index.php/Home/Goods/goodsList/id/189.html">刻录碟片</a><a href="/index.php/Home/Goods/goodsList/id/190.html">学生文具</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/29.html">外设产品</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/210.html">线缆</a><a href="/index.php/Home/Goods/goodsList/id/211.html">鼠标</a><a href="/index.php/Home/Goods/goodsList/id/212.html">手写板</a><a href="/index.php/Home/Goods/goodsList/id/213.html">键盘</a><a href="/index.php/Home/Goods/goodsList/id/214.html">电脑工具</a><a href="/index.php/Home/Goods/goodsList/id/215.html">网络仪表仪器</a><a href="/index.php/Home/Goods/goodsList/id/216.html">UPS</a><a href="/index.php/Home/Goods/goodsList/id/217.html">U盘</a><a href="/index.php/Home/Goods/goodsList/id/218.html">插座</a><a href="/index.php/Home/Goods/goodsList/id/219.html">移动硬盘</a><a href="/index.php/Home/Goods/goodsList/id/220.html">鼠标垫</a><a href="/index.php/Home/Goods/goodsList/id/221.html">摄像头</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/3.html"> 
+	                      <img src="/Public/upload/category/2016/04-22/5719c40f21341.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li><li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/4.html">家居、家具、家装、厨具</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/31.html">生活日用</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/227.html">清洁工具</a><a href="/index.php/Home/Goods/goodsList/id/228.html">收纳用品</a><a href="/index.php/Home/Goods/goodsList/id/229.html">雨伞雨具</a><a href="/index.php/Home/Goods/goodsList/id/230.html">浴室用品</a><a href="/index.php/Home/Goods/goodsList/id/231.html">缝纫/针织用品</a><a href="/index.php/Home/Goods/goodsList/id/232.html">洗晒/熨烫</a><a href="/index.php/Home/Goods/goodsList/id/233.html">净化除味</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/34.html">厨具</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/260.html">剪刀菜饭</a><a href="/index.php/Home/Goods/goodsList/id/261.html">厨房配件</a><a href="/index.php/Home/Goods/goodsList/id/262.html">水具酒具</a><a href="/index.php/Home/Goods/goodsList/id/263.html">餐具</a><a href="/index.php/Home/Goods/goodsList/id/264.html">茶具/咖啡具</a><a href="/index.php/Home/Goods/goodsList/id/265.html">烹饪锅具</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/37.html">家具</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/290.html">餐厅家具</a><a href="/index.php/Home/Goods/goodsList/id/291.html">电脑椅</a><a href="/index.php/Home/Goods/goodsList/id/292.html">书房家具</a><a href="/index.php/Home/Goods/goodsList/id/293.html">衣柜</a><a href="/index.php/Home/Goods/goodsList/id/294.html">储物家具</a><a href="/index.php/Home/Goods/goodsList/id/295.html">茶几</a><a href="/index.php/Home/Goods/goodsList/id/296.html">阳台/户外</a><a href="/index.php/Home/Goods/goodsList/id/297.html">电视柜</a><a href="/index.php/Home/Goods/goodsList/id/298.html">商业办公</a><a href="/index.php/Home/Goods/goodsList/id/299.html">餐桌</a><a href="/index.php/Home/Goods/goodsList/id/300.html">卧室家具</a><a href="/index.php/Home/Goods/goodsList/id/301.html">床</a><a href="/index.php/Home/Goods/goodsList/id/302.html">电脑桌</a><a href="/index.php/Home/Goods/goodsList/id/303.html">客厅家具</a><a href="/index.php/Home/Goods/goodsList/id/304.html">床垫</a><a href="/index.php/Home/Goods/goodsList/id/305.html">鞋架/衣帽架</a><a href="/index.php/Home/Goods/goodsList/id/306.html">客厅家具</a><a href="/index.php/Home/Goods/goodsList/id/307.html">沙发</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/32.html">家装软饰</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/234.html">节庆饰品</a><a href="/index.php/Home/Goods/goodsList/id/235.html">手工/十字绣</a><a href="/index.php/Home/Goods/goodsList/id/236.html">桌布/罩件</a><a href="/index.php/Home/Goods/goodsList/id/237.html">钟饰</a><a href="/index.php/Home/Goods/goodsList/id/238.html">地毯地垫</a><a href="/index.php/Home/Goods/goodsList/id/239.html">装饰摆件</a><a href="/index.php/Home/Goods/goodsList/id/240.html">沙发垫套/椅垫</a><a href="/index.php/Home/Goods/goodsList/id/241.html">花瓶花艺</a><a href="/index.php/Home/Goods/goodsList/id/242.html">帘艺隔断</a><a href="/index.php/Home/Goods/goodsList/id/243.html">创意家居</a><a href="/index.php/Home/Goods/goodsList/id/244.html">相框/照片墙</a><a href="/index.php/Home/Goods/goodsList/id/245.html">保暖防护</a><a href="/index.php/Home/Goods/goodsList/id/246.html">装饰字画</a><a href="/index.php/Home/Goods/goodsList/id/247.html">香薰蜡烛</a><a href="/index.php/Home/Goods/goodsList/id/248.html">墙贴/装饰贴</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/35.html">家装建材</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/266.html">电工电料</a><a href="/index.php/Home/Goods/goodsList/id/267.html">墙地材料</a><a href="/index.php/Home/Goods/goodsList/id/268.html">装饰材料</a><a href="/index.php/Home/Goods/goodsList/id/269.html">装修服务</a><a href="/index.php/Home/Goods/goodsList/id/270.html">沐浴花洒</a><a href="/index.php/Home/Goods/goodsList/id/271.html">灯饰照明</a><a href="/index.php/Home/Goods/goodsList/id/272.html">开关插座</a><a href="/index.php/Home/Goods/goodsList/id/273.html">厨房卫浴</a><a href="/index.php/Home/Goods/goodsList/id/274.html">油漆涂料</a><a href="/index.php/Home/Goods/goodsList/id/275.html">五金工具</a><a href="/index.php/Home/Goods/goodsList/id/276.html">龙头</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/38.html">灯具</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/308.html">吸顶灯</a><a href="/index.php/Home/Goods/goodsList/id/309.html">吊灯</a><a href="/index.php/Home/Goods/goodsList/id/310.html">筒灯射灯</a><a href="/index.php/Home/Goods/goodsList/id/311.html">氛围照明</a><a href="/index.php/Home/Goods/goodsList/id/312.html">LED灯</a><a href="/index.php/Home/Goods/goodsList/id/313.html">节能灯</a><a href="/index.php/Home/Goods/goodsList/id/314.html">落地灯</a><a href="/index.php/Home/Goods/goodsList/id/315.html">五金电器</a><a href="/index.php/Home/Goods/goodsList/id/316.html">应急灯/手电</a><a href="/index.php/Home/Goods/goodsList/id/317.html">台灯</a><a href="/index.php/Home/Goods/goodsList/id/318.html">装饰灯</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/33.html">宠物生活</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/249.html">水族用品</a><a href="/index.php/Home/Goods/goodsList/id/250.html">宠物玩具</a><a href="/index.php/Home/Goods/goodsList/id/251.html">宠物主粮</a><a href="/index.php/Home/Goods/goodsList/id/252.html">宠物牵引</a><a href="/index.php/Home/Goods/goodsList/id/253.html">宠物零食</a><a href="/index.php/Home/Goods/goodsList/id/254.html">宠物驱虫</a><a href="/index.php/Home/Goods/goodsList/id/255.html">猫砂/尿布</a><a href="/index.php/Home/Goods/goodsList/id/256.html">洗护美容</a><a href="/index.php/Home/Goods/goodsList/id/257.html">家居日用</a><a href="/index.php/Home/Goods/goodsList/id/258.html">医疗保健</a><a href="/index.php/Home/Goods/goodsList/id/259.html">出行装备</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/36.html">家纺</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/277.html">床品套件</a><a href="/index.php/Home/Goods/goodsList/id/278.html">抱枕靠垫</a><a href="/index.php/Home/Goods/goodsList/id/279.html">被子</a><a href="/index.php/Home/Goods/goodsList/id/280.html">布艺软饰</a><a href="/index.php/Home/Goods/goodsList/id/281.html">被芯</a><a href="/index.php/Home/Goods/goodsList/id/282.html">窗帘窗纱</a><a href="/index.php/Home/Goods/goodsList/id/283.html">床单被罩</a><a href="/index.php/Home/Goods/goodsList/id/284.html">蚊帐</a><a href="/index.php/Home/Goods/goodsList/id/285.html">床垫床褥</a><a href="/index.php/Home/Goods/goodsList/id/286.html">凉席</a><a href="/index.php/Home/Goods/goodsList/id/287.html">电地毯</a><a href="/index.php/Home/Goods/goodsList/id/288.html">毯子</a><a href="/index.php/Home/Goods/goodsList/id/289.html">毛巾浴巾</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/4.html"> 
+	                      <img src="/Public/upload/category/2016/04-22/5719c41e70959.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li><li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/5.html">男装、女装、童装、内衣</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/39.html">女装</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/319.html">短外套</a><a href="/index.php/Home/Goods/goodsList/id/320.html">羊毛衫</a><a href="/index.php/Home/Goods/goodsList/id/321.html">雪纺衫</a><a href="/index.php/Home/Goods/goodsList/id/322.html">礼服</a><a href="/index.php/Home/Goods/goodsList/id/323.html">风衣</a><a href="/index.php/Home/Goods/goodsList/id/324.html">羊绒衫</a><a href="/index.php/Home/Goods/goodsList/id/325.html">牛仔裤</a><a href="/index.php/Home/Goods/goodsList/id/326.html">马甲</a><a href="/index.php/Home/Goods/goodsList/id/327.html">衬衫</a><a href="/index.php/Home/Goods/goodsList/id/328.html">半身裙</a><a href="/index.php/Home/Goods/goodsList/id/329.html">休闲裤</a><a href="/index.php/Home/Goods/goodsList/id/330.html">吊带/背心</a><a href="/index.php/Home/Goods/goodsList/id/331.html">羽绒服</a><a href="/index.php/Home/Goods/goodsList/id/332.html">T恤</a><a href="/index.php/Home/Goods/goodsList/id/333.html">大码女装</a><a href="/index.php/Home/Goods/goodsList/id/334.html">正装裤</a><a href="/index.php/Home/Goods/goodsList/id/335.html">设计师/潮牌</a><a href="/index.php/Home/Goods/goodsList/id/336.html">毛呢大衣</a><a href="/index.php/Home/Goods/goodsList/id/337.html">小西装</a><a href="/index.php/Home/Goods/goodsList/id/338.html">中老年女装</a><a href="/index.php/Home/Goods/goodsList/id/339.html">加绒裤</a><a href="/index.php/Home/Goods/goodsList/id/340.html">棉服</a><a href="/index.php/Home/Goods/goodsList/id/341.html">打底衫</a><a href="/index.php/Home/Goods/goodsList/id/342.html">皮草</a><a href="/index.php/Home/Goods/goodsList/id/343.html">短裤</a><a href="/index.php/Home/Goods/goodsList/id/344.html">连衣裙</a><a href="/index.php/Home/Goods/goodsList/id/345.html">打底裤</a><a href="/index.php/Home/Goods/goodsList/id/346.html">真皮皮衣</a><a href="/index.php/Home/Goods/goodsList/id/347.html">婚纱</a><a href="/index.php/Home/Goods/goodsList/id/348.html">卫衣</a><a href="/index.php/Home/Goods/goodsList/id/349.html">针织衫</a><a href="/index.php/Home/Goods/goodsList/id/350.html">仿皮皮衣</a><a href="/index.php/Home/Goods/goodsList/id/351.html">旗袍/唐装</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/40.html">男装</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/352.html">羊毛衫</a><a href="/index.php/Home/Goods/goodsList/id/353.html">休闲裤</a><a href="/index.php/Home/Goods/goodsList/id/354.html">POLO衫</a><a href="/index.php/Home/Goods/goodsList/id/355.html">加绒裤</a><a href="/index.php/Home/Goods/goodsList/id/356.html">衬衫</a><a href="/index.php/Home/Goods/goodsList/id/357.html">短裤</a><a href="/index.php/Home/Goods/goodsList/id/358.html">真皮皮衣</a><a href="/index.php/Home/Goods/goodsList/id/359.html">毛呢大衣</a><a href="/index.php/Home/Goods/goodsList/id/360.html">中老年男装</a><a href="/index.php/Home/Goods/goodsList/id/361.html">卫衣</a><a href="/index.php/Home/Goods/goodsList/id/362.html">风衣</a><a href="/index.php/Home/Goods/goodsList/id/363.html">大码男装</a><a href="/index.php/Home/Goods/goodsList/id/364.html">羽绒服</a><a href="/index.php/Home/Goods/goodsList/id/365.html">T恤</a><a href="/index.php/Home/Goods/goodsList/id/366.html">仿皮皮衣</a><a href="/index.php/Home/Goods/goodsList/id/367.html">羊绒衫</a><a href="/index.php/Home/Goods/goodsList/id/368.html">棉服</a><a href="/index.php/Home/Goods/goodsList/id/369.html">马甲/背心</a><a href="/index.php/Home/Goods/goodsList/id/370.html">西服</a><a href="/index.php/Home/Goods/goodsList/id/371.html">设计师/潮牌</a><a href="/index.php/Home/Goods/goodsList/id/372.html">针织衫</a><a href="/index.php/Home/Goods/goodsList/id/373.html">西服套装</a><a href="/index.php/Home/Goods/goodsList/id/374.html">西裤</a><a href="/index.php/Home/Goods/goodsList/id/375.html">工装</a><a href="/index.php/Home/Goods/goodsList/id/376.html">夹克</a><a href="/index.php/Home/Goods/goodsList/id/377.html">牛仔裤</a><a href="/index.php/Home/Goods/goodsList/id/378.html">卫裤/运动裤</a><a href="/index.php/Home/Goods/goodsList/id/379.html">唐装/中山装</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/41.html">内衣</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/380.html">保暖内衣</a><a href="/index.php/Home/Goods/goodsList/id/381.html">大码内衣</a><a href="/index.php/Home/Goods/goodsList/id/382.html">吊带/背心</a><a href="/index.php/Home/Goods/goodsList/id/383.html">秋衣秋裤</a><a href="/index.php/Home/Goods/goodsList/id/384.html">文胸</a><a href="/index.php/Home/Goods/goodsList/id/385.html">内衣配件</a><a href="/index.php/Home/Goods/goodsList/id/386.html">睡衣/家居服</a><a href="/index.php/Home/Goods/goodsList/id/387.html">男式内裤</a><a href="/index.php/Home/Goods/goodsList/id/388.html">泳衣</a><a href="/index.php/Home/Goods/goodsList/id/389.html">打底裤袜</a><a href="/index.php/Home/Goods/goodsList/id/390.html">女式内裤</a><a href="/index.php/Home/Goods/goodsList/id/391.html">塑身美体</a><a href="/index.php/Home/Goods/goodsList/id/392.html">休闲棉袜</a><a href="/index.php/Home/Goods/goodsList/id/393.html">连裤袜/丝袜</a><a href="/index.php/Home/Goods/goodsList/id/394.html">美腿袜</a><a href="/index.php/Home/Goods/goodsList/id/395.html">商务男袜</a><a href="/index.php/Home/Goods/goodsList/id/396.html">打底衫</a><a href="/index.php/Home/Goods/goodsList/id/397.html">情趣内衣</a><a href="/index.php/Home/Goods/goodsList/id/398.html">情侣睡衣</a><a href="/index.php/Home/Goods/goodsList/id/399.html">少女文胸</a><a href="/index.php/Home/Goods/goodsList/id/400.html">文胸套装</a><a href="/index.php/Home/Goods/goodsList/id/401.html">抹胸</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/5.html"> 
+	                      <img src="/Public/upload/category/2016/04-22/5719c432da41e.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li><li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/7.html">鞋、箱包、珠宝、手表</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/49.html">精品男包</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/436.html">商务公文包</a><a href="/index.php/Home/Goods/goodsList/id/437.html">单肩/斜挎包</a><a href="/index.php/Home/Goods/goodsList/id/438.html">男士手包</a><a href="/index.php/Home/Goods/goodsList/id/439.html">双肩包</a><a href="/index.php/Home/Goods/goodsList/id/440.html">钱包/卡包</a><a href="/index.php/Home/Goods/goodsList/id/441.html">钥匙包</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/52.html">钟表</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/463.html">座钟挂钟</a><a href="/index.php/Home/Goods/goodsList/id/464.html">男表</a><a href="/index.php/Home/Goods/goodsList/id/465.html">女表</a><a href="/index.php/Home/Goods/goodsList/id/466.html">儿童表</a><a href="/index.php/Home/Goods/goodsList/id/467.html">智能手表</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/55.html">潮流女包</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/501.html">钥匙包</a><a href="/index.php/Home/Goods/goodsList/id/502.html">单肩包</a><a href="/index.php/Home/Goods/goodsList/id/503.html">手提包</a><a href="/index.php/Home/Goods/goodsList/id/504.html">斜挎包</a><a href="/index.php/Home/Goods/goodsList/id/505.html">双肩包</a><a href="/index.php/Home/Goods/goodsList/id/506.html">钱包</a><a href="/index.php/Home/Goods/goodsList/id/507.html">手拿包/晚宴包</a><a href="/index.php/Home/Goods/goodsList/id/508.html">卡包/零钱包</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/50.html">功能箱包</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/442.html">旅行包</a><a href="/index.php/Home/Goods/goodsList/id/443.html">妈咪包</a><a href="/index.php/Home/Goods/goodsList/id/444.html">电脑包</a><a href="/index.php/Home/Goods/goodsList/id/445.html">休闲运动包</a><a href="/index.php/Home/Goods/goodsList/id/446.html">相机包</a><a href="/index.php/Home/Goods/goodsList/id/447.html">腰包/胸包</a><a href="/index.php/Home/Goods/goodsList/id/448.html">登山包</a><a href="/index.php/Home/Goods/goodsList/id/449.html">旅行配件</a><a href="/index.php/Home/Goods/goodsList/id/450.html">拉杆箱/拉杆包</a><a href="/index.php/Home/Goods/goodsList/id/451.html">书包</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/53.html">时尚女鞋</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/468.html">女靴</a><a href="/index.php/Home/Goods/goodsList/id/469.html">布鞋/绣花鞋</a><a href="/index.php/Home/Goods/goodsList/id/470.html">鱼嘴鞋</a><a href="/index.php/Home/Goods/goodsList/id/471.html">雪地靴</a><a href="/index.php/Home/Goods/goodsList/id/472.html">凉鞋</a><a href="/index.php/Home/Goods/goodsList/id/473.html">雨鞋/雨靴</a><a href="/index.php/Home/Goods/goodsList/id/474.html">单鞋</a><a href="/index.php/Home/Goods/goodsList/id/475.html">拖鞋/人字拖</a><a href="/index.php/Home/Goods/goodsList/id/476.html">鞋配件</a><a href="/index.php/Home/Goods/goodsList/id/477.html">高跟鞋</a><a href="/index.php/Home/Goods/goodsList/id/478.html">马丁靴</a><a href="/index.php/Home/Goods/goodsList/id/479.html">帆布鞋</a><a href="/index.php/Home/Goods/goodsList/id/480.html">休闲鞋</a><a href="/index.php/Home/Goods/goodsList/id/481.html">妈妈鞋</a><a href="/index.php/Home/Goods/goodsList/id/482.html">踝靴</a><a href="/index.php/Home/Goods/goodsList/id/483.html">防水台</a><a href="/index.php/Home/Goods/goodsList/id/484.html">内增高</a><a href="/index.php/Home/Goods/goodsList/id/485.html">松糕鞋</a><a href="/index.php/Home/Goods/goodsList/id/486.html">坡跟鞋</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/51.html">珠宝</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/452.html">彩宝</a><a href="/index.php/Home/Goods/goodsList/id/453.html">时尚饰品</a><a href="/index.php/Home/Goods/goodsList/id/454.html">铂金</a><a href="/index.php/Home/Goods/goodsList/id/455.html">钻石</a><a href="/index.php/Home/Goods/goodsList/id/456.html">天然木饰</a><a href="/index.php/Home/Goods/goodsList/id/457.html">翡翠玉石</a><a href="/index.php/Home/Goods/goodsList/id/458.html">珍珠</a><a href="/index.php/Home/Goods/goodsList/id/459.html">纯金K金饰品</a><a href="/index.php/Home/Goods/goodsList/id/460.html">金银投资</a><a href="/index.php/Home/Goods/goodsList/id/461.html">银饰</a><a href="/index.php/Home/Goods/goodsList/id/462.html">水晶玛瑙</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/54.html">流行男鞋</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/487.html">增高鞋</a><a href="/index.php/Home/Goods/goodsList/id/488.html">鞋配件</a><a href="/index.php/Home/Goods/goodsList/id/489.html">拖鞋/人字拖</a><a href="/index.php/Home/Goods/goodsList/id/490.html">凉鞋/沙滩鞋</a><a href="/index.php/Home/Goods/goodsList/id/491.html">休闲鞋</a><a href="/index.php/Home/Goods/goodsList/id/492.html">雨鞋/雨靴</a><a href="/index.php/Home/Goods/goodsList/id/493.html">商务休闲鞋</a><a href="/index.php/Home/Goods/goodsList/id/494.html">定制鞋</a><a href="/index.php/Home/Goods/goodsList/id/495.html">正装鞋</a><a href="/index.php/Home/Goods/goodsList/id/496.html">男靴</a><a href="/index.php/Home/Goods/goodsList/id/497.html">帆布鞋</a><a href="/index.php/Home/Goods/goodsList/id/498.html">传统布鞋</a><a href="/index.php/Home/Goods/goodsList/id/499.html">工装鞋</a><a href="/index.php/Home/Goods/goodsList/id/500.html">功能鞋</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/7.html"> 
+	                      <img src="/Public/upload/category/2016/04-22/5719c445a02ba.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li><li cate_id="C24640">
+            <span class="icon-drink"></span>
+            <h3 class="catagory"><a href="/index.php/Home/Goods/goodsList/id/6.html">个人化妆</a></h3>
+            <div class="catagory-detail clearfix cate_loading">
+              <div class="sub-item J_cate_item hide">
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/42.html">身体护肤</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/402.html">沐浴</a><a href="/index.php/Home/Goods/goodsList/id/403.html">润肤</a><a href="/index.php/Home/Goods/goodsList/id/404.html">颈部</a><a href="/index.php/Home/Goods/goodsList/id/405.html">手足</a><a href="/index.php/Home/Goods/goodsList/id/406.html">纤体塑形</a><a href="/index.php/Home/Goods/goodsList/id/407.html">美胸</a><a href="/index.php/Home/Goods/goodsList/id/408.html">套装</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/45.html">香水彩妆</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/417.html">唇部</a><a href="/index.php/Home/Goods/goodsList/id/418.html">美甲</a><a href="/index.php/Home/Goods/goodsList/id/419.html">美容工具</a><a href="/index.php/Home/Goods/goodsList/id/420.html">套装</a><a href="/index.php/Home/Goods/goodsList/id/421.html">香水</a><a href="/index.php/Home/Goods/goodsList/id/422.html">底妆</a><a href="/index.php/Home/Goods/goodsList/id/423.html">腮红</a><a href="/index.php/Home/Goods/goodsList/id/424.html">眼部</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/48.html">洗发护发</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/430.html">套装</a><a href="/index.php/Home/Goods/goodsList/id/431.html">洗发</a><a href="/index.php/Home/Goods/goodsList/id/432.html">护发</a><a href="/index.php/Home/Goods/goodsList/id/433.html">染发</a><a href="/index.php/Home/Goods/goodsList/id/434.html">造型</a><a href="/index.php/Home/Goods/goodsList/id/435.html">假发</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/43.html">口腔护理</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/409.html">牙膏/牙粉</a><a href="/index.php/Home/Goods/goodsList/id/410.html">牙刷/牙线</a><a href="/index.php/Home/Goods/goodsList/id/411.html">漱口水</a><a href="/index.php/Home/Goods/goodsList/id/412.html">套装</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/46.html">清洁用品</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/95.html">纸品湿巾</a><a href="/index.php/Home/Goods/goodsList/id/96.html">衣物清洁</a><a href="/index.php/Home/Goods/goodsList/id/97.html">家庭清洁</a><a href="/index.php/Home/Goods/goodsList/id/98.html">一次性用品</a><a href="/index.php/Home/Goods/goodsList/id/99.html">驱虫用品</a>                        </dd>
+                      </dl>                </div>
+                <div class="col fl">
+                  <dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/44.html">女性护理</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/413.html">卫生巾</a><a href="/index.php/Home/Goods/goodsList/id/414.html">卫生护垫</a><a href="/index.php/Home/Goods/goodsList/id/415.html">私密护理</a><a href="/index.php/Home/Goods/goodsList/id/416.html">脱毛膏</a>                        </dd>
+                      </dl><dl class="fixed">
+                        <dt> <a href="/index.php/Home/Goods/goodsList/id/47.html">面部护肤</a> </dt>
+                        <dd>
+                          <a href="/index.php/Home/Goods/goodsList/id/425.html">面膜</a><a href="/index.php/Home/Goods/goodsList/id/426.html">剃须</a><a href="/index.php/Home/Goods/goodsList/id/427.html">套装</a><a href="/index.php/Home/Goods/goodsList/id/428.html">清洁</a><a href="/index.php/Home/Goods/goodsList/id/429.html">护肤</a>                        </dd>
+                      </dl>                </div>
+                <div class="col brand fl">
+                  <ul class="fixed">
+                    
+                  </ul>
+                  <!--分类商品图片-->
+                      <a class="ad mt15" href="/index.php/Home/Goods/goodsList/id/6.html"> 
+	                      <img src="/Public/upload/category/2016/04-22/5719c4a1e3447.jpg" height="150" width="210"> 
+                      </a> 
+                  <!--分类商品图片 end-->                     
+                  </div>
+              </div>
+            </div>
+          </li>      </ul>
+    </div>
+    <ul class="horizontal-nav">
+      <li is_fresh="0"><a class="" href="/">
+        <span>首页</span>
+        <i class=""></i></a></li>
+      <li is_fresh="0"> 
+          <a href="/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=123" >
+          <span>手机城</span>
+          <i class=""></i> </a> </li><li is_fresh="0"> 
+          <a href="/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=51" >
+          <span>珠宝</span>
+          <i class=""></i> </a> </li><li is_fresh="0"> 
+          <a href="/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=20" >
+          <span>家电城</span>
+          <i class=""></i> </a> </li><li is_fresh="0"> 
+          <a href="/index.php?m=Home&amp;c=Index&amp;a=promoteList" >
+          <span>促销商品</span>
+          <i class=""></i> </a> </li><li is_fresh="0"> 
+          <a href="/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=45" >
+          <span>化妆品</span>
+          <i class=""></i> </a> </li><li is_fresh="0"> 
+          <a href="/index.php?m=Home&amp;c=Channel&amp;a=index&amp;id=1" >
+          <span>数码城</span>
+          <i class=""></i> </a> </li>    </ul>
+  </div>
+</nav>
+<script>
+/**
+* 鼠标移动端到头部购物车上面 就ajax 加载
+*/
+// 鼠标是否移动到了上方
+var header_cart_list_over = 0; 
+$("#hd-my-cart").hover(function(){
+	   $("#show_minicart").show(); // 显示购物车列表			
+       if(header_cart_list_over == 1) 
+			return false;
+        header_cart_list_over = 1; 
+		$.ajax({
+			type : "GET",
+			url:"/index.php?m=Home&c=Cart&a=header_cart_list&template=header_cart_list2",//+tab,
+			success: function(data){								 
+			 		$("#hd-my-cart > #show_minicart").html(data);							
+			}
+		});	
+},function(){
+	 (typeof(t) == "undefined") || clearTimeout(t); 	 
+	 t = setTimeout(function () { 
+			header_cart_list_over = 0; /// 标识鼠标已经离开	        
+	  }, 2000);		
+      $("#show_minicart").hide();//  隐藏购物车列表
+});
+// 购物车 显示隐藏
+/*
+$("#hd-my-cart").hover(function(){
+	$("#show_minicart").show(); // 显示购物车列表	
+}).mouseleave(function(){
+	$("#show_minicart").hide();//  隐藏购物车列表	
+});
+*/
+// ajax 删除购物车的商品
+function header_cart_del(ids)
+{
+	$.ajax({
+		type : "POST",
+		url:"/index.php/Home/Cart/ajaxDelCart.html",//+tab,
+		data:{ids:ids}, // 
+	    dataType:'json',		
+		success: function(data){
+		  // alert(data.msg);
+		   if(data.status == 1)				
+			{
+				header_cart_list_over = 0; /// 标识鼠标已经离开
+				$("#hd-my-cart > .icon-cart-hd").trigger('mouseenter');	 // 无法触发 hover 改为 trigger('mouseenter');//hover修改为mouseenter/mouseleave/mouseover/mouseout
+			}
+		}
+	});
+}
+</script>
+<div class="wrap">
+<div class="bread_crumbs"> 
+  <a href="/index.php/Home/User/index.html" class="crumbs_font">我的肥鱼</a>&gt;<span class="color">安全设置</span>
+</div>
+<div class="col_main" style="float: none; width: auto;">
+		<div class="main security_passwd">
+			<!-- themes star -->
+			<div class="themes_title">
+				<h3>安全设置</h3>
+			</div>
+			<!-- themes end -->
+			<section class="security_passwd">
+				<div class="wrapper-3">
+					<div class="pub-step" id="step">
+						<div class="steps-nav fixed w4">
+							<p class="step-nav step-nav-1 go">
+								1.填写用户名<i></i>
+							</p>
+							<p class="step-nav step-nav-2">
+								2.验证身份<i></i>
+							</p>
+							<p class="step-nav step-nav-3">
+								3.设置新密码<i></i>
+							</p>
+							<p class="step-nav step-nav-4">4.完成</p>
+						</div>
+						<div class="steps-con block-00">
+							<div class="step-col fn-form" data-fn-verify="">
+							   <form id="forget_pwd" action="/index.php/Home/User/identity.html" method="post">
+								<ul class="pub-ul">
+									<li><span class="title">账户名：</span>
+										<div class="con verify-group">
+											<input type="text" class="it-01 form-control verify-ctrl" name="username" id="username" onblur="chkuser()">
+											<span class="v-tips verify-tips" data-tips-for="username">
+											<i class="icon"></i><span class="txt"></span></span>
+										</div>
+									</li>
+									<li class="li-02 captcha_row"><span class="title">验证码：</span>
+										<div class="con verify-group">
+											<input type="text" class="msg-code ie-01 verify-ctrl left" name="captcha" id="captcha" onblur="chkcaptcha()"> 
+											<img id="captchaImg" src="/index.php?m=Home&c=User&a=verify&type=forget" alt="captcha" class="ie-02 left"> 
+											<span class="a0066cc left">看不清？<a class="reloadCaptcha target_no" onclick="verify()" href="javascript: void(0);" target="_blank">换一张</a></span>
+											<span class="v-tips verify-tips" data-tips-for="captcha"><i class="icon">
+											</i><span class="txt"></span></span>
+										</div>
+									</li>
+									<li>
+										<button id="fx_next" type="button" class="btn_120 verify-ctrl" onclick="gonext()">下一步</button>
+									</li>
+								</ul>
+								<input type="hidden" name="__hash__" value="b8ac6dd547314ef608f7859c2d973b10_fe457663d1807ead50c268b45ae339d0" /></form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<div style="clear: both;"></div>
+<footer>
+  <div id="ft-service-infr"  class="move-down">
+    <div class="wrapper">
+      <dl class="contact-infr">
+        <dd class="phone-num icon-phone"><i class="icon-tel"></i>客服电话</dd>
+        <!--dd>CEO邮箱：<a href="mailto:ceo@feiyu.com" target="_blank">CEO@feiyu.com</a></dd-->
+        <dd><a href="javascript:void(0);">15871376283</a></dd>
+      </dl>
+     <dl class="nav-service">
+        <dt>帮助中心</dt>
+        <dd><a href="/index.php/Home/Article/detail/article_id/8.html">购物指南</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/9.html">配送方式</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/10.html">支付方式</a></dd>      </dl><dl class="nav-service">
+        <dt>技术支持</dt>
+        <dd><a href="/index.php/Home/Article/detail/article_id/16.html">售后网点</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/17.html">常见问题</a></dd>      </dl><dl class="nav-service">
+        <dt>关于商城</dt>
+        <dd><a href="/index.php/Home/Article/detail/article_id/20.html">公司介绍</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/21.html">商城简介</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/22.html">联系客服</a></dd>      </dl><dl class="nav-service">
+        <dt>关注我们</dt>
+        <dd><a href="/index.php/Home/Article/detail/article_id/26.html">商城手机版</a></dd>      </dl><dl class="nav-service">
+        <dt>售后服务</dt>
+        <dd><a href="/index.php/Home/Article/detail/article_id/12.html">保修政策</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/13.html">退换货政策</a></dd><dd><a href="/index.php/Home/Article/detail/article_id/14.html">退换货流程</a></dd>      </dl>    </div>
+  </div>
+  <div class="wrapper" id="global-footer" style="width: 100%;">
+    <p class="copyright">Copyright © 2016-2025 深圳搜豹公司  版权所有 保留一切权利 备案号:粤00-86140485号</p>
+    <dl class="authentic">
+      <a target="_blank" href="" taregt="_blank"><dd class="sgs"></dd></a>
+      <a target="_blank" href="" taregt="_blank"><dd class="zx110"></dd></a>
+      <a target="_blank" href="" taregt="_blank"><img src="/Template/pc/soubao/Static/images/time_cnnic.jpg"></a>
+      <a target="_blank" href="" taregt="_blank" class="aqlm"><img src="/Template/pc/soubao/Static/images/aqlm.jpg"></a>
+    </dl>
+  </div>
+  <!-- /#global-footer --> 
+</footer>
+<script>
+function verify(){
+    $('#captchaImg').attr('src','/index.php?m=Home&c=User&a=verify&type=forget&r='+Math.random());
+}
+
+var uflag = false;
+var cflag = false;
+
+function chkuser(){
+	$('span[data-tips-for="username"]').find('.txt').empty();
+	var username = $('#username').val();
+	if(username == ''){
+		show_error('username','用户名不能为空');
+		return false;
+	}else{
+		$.ajax({
+			url:'/index.php?m=Home&c=User&a=check_username&t='+Math.random(),
+			type:'post',
+			dataType:'json',
+			data:{username:username},
+			success:function(t){
+				if(t==1){
+					$('span[data-tips-for="username"]').css('display','inline');
+					$('span[data-tips-for="username"]').find('i').removeClass('icon');
+					$('span[data-tips-for="username"]').find('i').removeClass('icon-warn');
+					$('span[data-tips-for="username"]').find('i').addClass('icon-loss');
+					$('span[data-tips-for="username"]').find('.txt').empty();
+					uflag = true;
+				}else{
+					show_error('username','用户名错误');
+				}
+			}
+		})
+	}
+}
+
+function chkcaptcha(){
+	$('span[data-tips-for="captcha"]').find('.txt').empty();
+	var captcha = $('#captcha').val();
+	if(captcha == ''){
+		show_error('captcha','验证码不能为空');
+		return false;
+	}else if(captcha.length!=4){	
+		show_error('captcha','验证码错误');
+		return false;
+	}else{
+		$.ajax({
+			url:'/index.php?m=Home&c=User&a=check_captcha&t='+Math.random(),
+			type:'post',
+			dataType:'json',
+			data:{verify_code:captcha,type:'forget'},
+			success:function(t){
+				if(t==1){
+					$('span[data-tips-for="captcha"]').css('display','inline');
+					$('span[data-tips-for="captcha"]').find('i').removeClass('icon');
+					$('span[data-tips-for="captcha"]').find('i').removeClass('icon-warn');
+					$('span[data-tips-for="captcha"]').find('i').addClass('icon-loss');
+					$('span[data-tips-for="captcha"]').find('.txt').empty();
+					cflag = true;
+				}else{
+					show_error('captcha','验证码不正确');
+					return false;
+				}
+			}
+		})
+	}
+}
+
+function gonext(){
+	if($('#username').val() == ''){
+		show_error('username','用户名不能为空');
+		return;
+	}
+	if($('#captcha').val() == ''){
+		show_error('captcha','验证码不能为空');
+		return;
+	}	
+	if(!uflag){
+		show_error('username','用户名验证有误');
+		return;
+	}else if(!cflag){
+		show_error('captcha','图形验证码有误');
+		return;
+	}
+	if(uflag && cflag){
+		$('#forget_pwd').submit();
+	}
+}
+
+function show_error(type,msg){
+	$('span[data-tips-for="'+type+'"]').css('display','inline');
+	$('span[data-tips-for="'+type+'"]').find('i').removeClass('icon');
+	$('span[data-tips-for="'+type+'"]').find('i').removeClass('icon-loss');
+	$('span[data-tips-for="'+type+'"]').find('i').addClass('icon-warn');
+	$('span[data-tips-for="'+type+'"]').find('.txt').empty().html(msg);
+}
+</script>
+</body>
+</html>
